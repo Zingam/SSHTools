@@ -1,0 +1,11 @@
+################################################################################
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+################################################################################
+
+# Available default styles: LLVM, Google, Chromium, Mozilla, WebKit
+BasedOnStyle: Mozilla
+# Preprocessor directive indenting style to use
+IndentPPDirectives: AfterHash
+# Always break after an open bracket, if the parameters don't fit on a single
+# line
+AlignAfterOpenBracket: AlwaysBreak
