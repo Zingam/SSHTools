@@ -6,13 +6,23 @@ cmake_minimum_required (VERSION 3.13)
 # Project name
 ################################################################################
 
-project ("SSHTools_Common")
+project ("ConfiParse")
 
 ################################################################################
 
-################################################################################
+include ("ConfiParse_SourceFiles.cmake")
+add_library (${PROJECT_NAME} STATIC
+  ${__ConfiParse_SourceFiles}
+)
 
-add_subdirectory ("Base")
-add_subdirectory ("ConfiParse")
+target_include_directories (${PROJECT_NAME}
+  PUBLIC
+    "./Include"
+)
+
+target_link_libraries (${PROJECT_NAME}
+  PRIVATE
+    Common_Base
+)
 
 ################################################################################

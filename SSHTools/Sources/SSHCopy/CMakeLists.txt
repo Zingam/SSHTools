@@ -48,7 +48,7 @@ target_include_directories (${PROJECT_NAME}
 
 target_link_libraries (${PROJECT_NAME}
   PRIVATE
-    SSHTools_Common_Base
+    Common_Base
 )
 
 ################################################################################
@@ -60,6 +60,8 @@ list (APPEND __SharedLibraries ${libssh_SHARED_LIBRARY})
 
 target_link_libraries (${PROJECT_NAME}
   PRIVATE
+    Common_Base
+    ConfiParse
     REngine::libssh
 )
 
