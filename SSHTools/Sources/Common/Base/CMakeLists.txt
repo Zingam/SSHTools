@@ -3,14 +3,6 @@ cmake_minimum_required (VERSION 3.13)
 ################################################################################
 
 ################################################################################
-# Project name
-################################################################################
-
-project ("Common")
-
-################################################################################
-
-################################################################################
 # Build/Configuration types
 ################################################################################
 
@@ -50,7 +42,6 @@ endif ()
 ################################################################################
 # Target: ${PROJECT_NAME}_Base
 ################################################################################
-
 add_library (${PROJECT_NAME}_Base INTERFACE)
 target_compile_definitions (${PROJECT_NAME}_Base
   INTERFACE
@@ -71,7 +62,7 @@ target_compile_definitions (${PROJECT_NAME}_Base
     # *  NOVIRTUALKEYCODES - VK_*
     $<$<PLATFORM_ID:Windows>:NOVIRTUALKEYCODES>
     # *  NOWINMESSAGES     - WM_*, EM_*, LB_*, CB_*
-    $<$<PLATFORM_ID:Windows>:NOWINMESSAGES>
+    #$<$<PLATFORM_ID:Windows>:NOWINMESSAGES>
     # *  NOWINSTYLES       - WS_*, CS_*, ES_*, LBS_*, SBS_*, CBS_*
     $<$<PLATFORM_ID:Windows>:NOWINSTYLES>
     # *  NOSYSMETRICS      - SM_*
@@ -97,7 +88,7 @@ target_compile_definitions (${PROJECT_NAME}_Base
     # *  NOCOLOR           - Screen colors
     $<$<PLATFORM_ID:Windows>:NOCOLOR>
     # *  NOCTLMGR          - Control and Dialog routines
-    $<$<PLATFORM_ID:Windows>:NOCTLMGR>
+    #$<$<PLATFORM_ID:Windows>:NOCTLMGR>
     # *  NODRAWTEXT        - DrawText() and DT_*
     $<$<PLATFORM_ID:Windows>:NODRAWTEXT>
     # *  NOGDI             - All GDI defines and routines
@@ -105,7 +96,7 @@ target_compile_definitions (${PROJECT_NAME}_Base
     # *  NOKERNEL          - All KERNEL defines and routines
     $<$<PLATFORM_ID:Windows>:NOKERNEL>
     # *  NOUSER            - All USER defines and routines
-    $<$<PLATFORM_ID:Windows>:NOUSER>
+    #$<$<PLATFORM_ID:Windows>:NOUSER>
     # *  NONLS             - All NLS defines and routines
     $<$<PLATFORM_ID:Windows>:NONLS>
     # *  NOMB              - MB_* and MessageBox()
@@ -117,7 +108,7 @@ target_compile_definitions (${PROJECT_NAME}_Base
     # *  NOMINMAX          - Macros min(a,b) and max(a,b)
     $<$<PLATFORM_ID:Windows>:NOMINMAX>
     # *  NOMSG             - typedef MSG and associated routines
-    $<$<PLATFORM_ID:Windows>:NOMSG>
+    #$<$<PLATFORM_ID:Windows>:NOMSG>
     # *  NOOPENFILE        - OpenFile(), OemToAnsi, AnsiToOem, and OF_*
     $<$<PLATFORM_ID:Windows>:NOOPENFILE>
     # *  NOSCROLL          - SB_* and scrolling routines
@@ -159,6 +150,10 @@ target_compile_options (${PROJECT_NAME}_Base
     $<$<AND:$<PLATFORM_ID:Windows>,$<CXX_COMPILER_ID:Clang>>:/std:c++latest>
     $<$<AND:$<PLATFORM_ID:Windows>,$<CXX_COMPILER_ID:Clang>>:-Wno-pragma-pack>
     $<$<AND:$<PLATFORM_ID:Windows>,$<CXX_COMPILER_ID:Clang>>:-Wno-\#pragma-messages>
+)
+target_include_directories (${PROJECT_NAME}_Base
+  INTERFACE
+    "${CMAKE_CURRENT_LIST_DIR}/Include"
 )
 
 ################################################################################

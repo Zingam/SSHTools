@@ -43,12 +43,14 @@ endif ()
 
 target_include_directories (${PROJECT_NAME}
   PRIVATE
-    "Sources"
+    "${CMAKE_CURRENT_LIST_DIR}/Sources"
 )
 
 target_link_libraries (${PROJECT_NAME}
   PRIVATE
-    Common_Base
+    SSHTools_Base
+    SSHTools_Common
+    SSHTools_ConfiParse
 )
 
 ################################################################################
@@ -60,8 +62,6 @@ list (APPEND __SharedLibraries ${libssh_SHARED_LIBRARY})
 
 target_link_libraries (${PROJECT_NAME}
   PRIVATE
-    Common_Base
-    ConfiParse
     REngine::libssh
 )
 

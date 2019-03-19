@@ -1,0 +1,13 @@
+#pragma once
+
+#if !defined (NAMESPACE_BEGIN)
+# define NAMESPACE_BEGIN(ns) namespace ns {
+#else
+# error NAMESPACE_BEGIN is already defined...
+#endif // !defined (NAMESPACE_BEGIN)
+
+#if !defined (NAMESPACE_END)
+# define NAMESPACE_END(ns) }
+#else
+# error NAMESPACE_END is already defined...
+#endif // !defined (NAMESPACE_END)
