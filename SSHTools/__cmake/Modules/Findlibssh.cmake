@@ -60,12 +60,22 @@ find_library (libssh_LIBRARY
 
 if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
   list (APPEND __LibraryFiles "ssh.dll")
+  if (Install_PDB)
+    list (APPEND __LibraryFiles "ssh.pdb")
+  endif ()
   # Additional, linked shared libraries
   if (DEFINED ENV{VCPKG_ROOT})
     if (CMAKE_BUILD_TYPE STREQUAL "Debug")
       set (__DebugSuffix "d")
     endif ()
-    list (APPEND __LibraryFiles "zlib${__DebugSuffix}1.dll")
+    list (APPEND __LibraryFiles "libeay32.dll")
+    if (Install_PDB)
+      list (APPEND __LibraryFiles "libeay32.pdb")
+    endif ()
+    list (APPEND __LibraryFiles "ssleay32.dll")
+    if (Install_PDB)
+      list (APPEND __LibraryFiles "ssleay32.pdb")
+    endif ()
   endif ()
 
   set (__Number "0")
