@@ -1,20 +1,31 @@
 #include "ConfiParse.hpp"
 
-static std::string name{ "ConfiParse" };
-static std::string version{ "0.1.0" };
+NAMESPACE_BEGIN(ConfiParse)
 
-namespace ConfiParse {
-
-std::string const&
-GetName()
+Document
+Parse(std::filesystem::path const& filepath)
 {
-  return name;
+  return Document();
 }
 
-std::string const&
-GetVersion()
+Document
+Parse(std::string_view const& source)
 {
-  return version;
+  return Document();
 }
 
+void
+Parser::Load(std::filesystem::path const& filepath)
+{}
+
+void
+Parser::Load(std::string_view const& memorySource)
+{}
+
+std::string
+Parser::GetNextLine()
+{
+  return std::string();
 }
+
+NAMESPACE_END(ConfiParse)

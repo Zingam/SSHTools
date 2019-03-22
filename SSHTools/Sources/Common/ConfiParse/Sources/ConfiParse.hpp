@@ -1,13 +1,28 @@
 #pragma once
 
-#include <string>
+#include <SSHTools/Base_Macros>
+#include <filesystem>
 
-namespace ConfiParse {
+NAMESPACE_BEGIN(ConfiParse)
 
-std::string const&
-GetName();
+class Document
+{};
 
-std::string const&
-GetVersion();
+Document
+Parse(std::filesystem::path const& filepath);
 
-}
+Document
+Parse(std::string_view const& source);
+
+
+  class Parser
+{
+public:
+  void Load(std::filesystem::path const& filepath);
+  void Load(std::string_view const& source);
+
+public:
+  std::string GetNextLine();
+};
+
+NAMESPACE_END(ConfiParse)
