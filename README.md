@@ -2,9 +2,11 @@
 
 Tools using the SSH protocol...
 
+[![Build status](https://ci.appveyor.com/api/projects/status/f4wuu2qbhcvcqma9?svg=true)](https://ci.appveyor.com/project/Zingam/sshtools)
+
 ## Prerequisites
 ### Software
-1. C++17 compiler (or newer)
+1. C++20 compiler (or newer)
 2. CMake 3.10 (or newer)
 
 ### Third Party Library
